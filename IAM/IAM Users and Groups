@@ -1,0 +1,16 @@
+IAM or Identity and Access Management is a Global service.
+We create users and assign them to groups.
+
+Root account created in AWS is default user and should only be used to setup the account.
+It is a secure practice to create users in IAM and addign them to groups.
+
+Groups can only contain users and not other groups.
+All users not necessarily belong to a group.
+A user can be in multiple groups.
+
+The need for creating users and groups is to allow them to use the AWS account.
+We set permissions for the groups or accounts to have certain access in the account.
+
+Users and groups can be assigned JSON document called IAM Policies.
+These policies define the permission for the users and groups.
+It's best pratice to apply Least Privilege Principle.
