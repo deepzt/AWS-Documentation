@@ -1,0 +1,19 @@
+#########################
+IAM Policies
+#########################
+
+1. The users in a group will inherit the permissions which is set for the group in the policy.
+2. The users who is not in any group can be assigned permissions through an Inline Policy.
+3. If any user is in multiple groups, they will inherit all the permissions of those groups set by the policies.
+4. The Policy structure is aas follows:
+    a. Version - Usually use dfor identification of the policy
+    b. Id - Again for identification of the policy
+    c. Statement/s - It consists of many other components:
+        i. Sid/Statement ID: identifier of the statement
+        ii. Effect: Effect of the policy, If it allows or denies certain APIs.
+        iii. Principle: Account/User/Role to which this policy will apply to.
+        iv. Action: List of API calls that this policy allows or denies. (Implementation of Effects)
+        v. Resources: List of resources/services the action is applied to.
+        vi. Condition (Optional): Conditions when these policies take effect.
+
+
