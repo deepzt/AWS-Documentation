@@ -1,3 +1,7 @@
+####################################
+IAM Users and Groups
+####################################
+
 IAM or Identity and Access Management is a Global service.
 We create users and assign them to groups.
 
@@ -14,3 +18,23 @@ We set permissions for those groups or users to have certain access in the accou
 Ther Users and groups are assigned with permissions through a JSON document called IAM Policy.
 These policies defines permissions for the users and groups.
 It's best pratice to apply Least Privilege Principle for any users for security reasons.
+
+
+#########################################
+Implementation of IAM User and Groups
+#########################################
+
+1. Search IAM service in AWS
+2. Notice the Top right corner, it shows Global which tells us it is a global service and not region specific service.
+3. Let's create an admin user. Go to the users section and click on create account.
+4. Now specify the user name.
+5. We can choose whether to provide access to the user for AWS Management console. Since we are creating admin user. We will select that.
+6. In next step we select to create an IAM user instead of using AWS Identity centre.
+7. Create password and add permissions to the user.
+8. We have options to add policies to the user or we can create group and attach the policy to the group which the user will inherit.
+9. We create a group called admin and we attach the predefined policy 'AdministratorAccess' to the group.
+10. We can add tags to the groups to specify any remarks.
+
+Additional Points:
+
+1. We can edit the account alias and signin URL for the AWS account.
