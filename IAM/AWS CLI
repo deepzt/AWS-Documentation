@@ -1,0 +1,14 @@
+
+# AWS Command Line Interface (CLI)
+
+For the Command Line Interface (CLI) to work, we need to configure it to work using Access Keys.
+
+1. Download AWS CLI in your system.
+2. Go to the user section in management console in AWS and under Users > Security Credentials > Create an Access Key
+3. Choose Command Line Interface.
+4. Now, you have your Access Key and Secret Key ready.
+5. Fire up the AWS CLI in your system and type in the command `aws configure`.
+6. Enter the Access Key ID, Secret Key, Default Region Name,Default output format.
+7. Check the working of the AWS CLI using any command such as `aws iam list-users`.
+
+
