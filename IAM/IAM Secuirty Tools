@@ -1,10 +1,10 @@
 
 # IAM Security Tools
 
-1. IAM Credentials Report (**Account Level**)
+1. IAM Credentials Report (Account Level)
     A report that lists out all account users and status of the various credentials.
 
-2. IAM Access Advisor (**User Level**)
+2. IAM Access Advisor (User Level)
     - A report that shows the service permissions granted to a user and when those services were last accessed.
     - We can use the information to revise the policy.
 
@@ -13,13 +13,13 @@
 1. On the left hand side of the IAM Section, click on the credential report.
 2. Then `Download Credentials Report`. It will generate a CSV report.
 3. Columns in the Credential report:
-    - **All accounts (including Root)**
-    - **ARN**
-    - **User Creation Time**
-    - **Password Enabled or Disabled**
-    - **Password last used time**
-    - **MFA Enabled or Disabled**
-    - **Certificate and Access Key information**
+    - All accounts (including Root)
+    - ARN
+    - User Creation Time
+    - Password Enabled or Disabled
+    - Password last used time
+    - MFA Enabled or Disabled
+    - Certificate and Access Key information
 
 # Generating Access Advisor Report
 

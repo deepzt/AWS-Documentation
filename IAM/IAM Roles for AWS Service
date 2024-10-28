@@ -1,6 +1,6 @@
 # IAM Roles for Services
 
-1. To understand what IAM Roles are, we need to be clear with the fact that there are some actions that AWS services will need to perform on our behalf. To do so, we need to assign permission to AWS services with the help of **IAM Roles**.
+1. To understand what IAM Roles are, we need to be clear with the fact that there are some actions that AWS services will need to perform on our behalf. To do so, we need to assign permission to AWS services with the help of IAM Roles.
 
 2. These IAM roles will be just like user but these are not intended to be used by physical users but by AWS users.
 
