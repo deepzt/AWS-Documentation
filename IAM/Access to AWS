@@ -1,0 +1,21 @@
+# AWS can be access through the following ways:
+
+    1. AWS Management Console (which is protected by password and MFA)
+    2. AWS Command Line Interface (CLI) (protected by access keys)
+    3. AWS Software Developer Kit (SDK) (for code, protected by access keys)
+
+Access keys are generated through AWS Console
+
+# AWS CLI
+
+This tool enables access to AWS services through commands.
+Direct access to public APIs of AWS services.
+
+Open source : [https://github.com/aws/aws-cli]
+
+# AWS SDK
+
+1. APIs (language specifics)
+2. Access and Manage AWS services programmatically.
+3. Useful in embedding in applications ro use AWS services.
+
