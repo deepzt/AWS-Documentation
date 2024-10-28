@@ -1,0 +1,5 @@
+# AWS CloudShell
+
+It is a terminal in the cloud in AWS console.
+This service is not available in all region.
+It is possible to download and upload files through CloudShell.
