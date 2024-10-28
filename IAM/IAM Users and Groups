@@ -1,6 +1,6 @@
-####################################
-IAM Users and Groups
-####################################
+
+# IAM Users and Groups
+
 
 IAM or Identity and Access Management is a Global service.
 We create users and assign them to groups.
@@ -19,10 +19,7 @@ Ther Users and groups are assigned with permissions through a JSON document call
 These policies defines permissions for the users and groups.
 It's best pratice to apply Least Privilege Principle for any users for security reasons.
 
-
-#########################################
-Implementation of IAM User and Groups
-#########################################
+# Implementation of IAM User and Groups
 
 1. Search IAM service in AWS
 2. Notice the Top right corner, it shows Global which tells us it is a global service and not region specific service.
