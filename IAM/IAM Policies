@@ -1,6 +1,5 @@
-#########################
-IAM Policies
-#########################
+# IAM Policies
+
 
 1. The users in a group will inherit the permissions which is set for the group in the policy.
 2. The users who is not in any group can be assigned permissions through an Inline Policy.
