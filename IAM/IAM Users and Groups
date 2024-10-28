@@ -5,17 +5,17 @@
 IAM or Identity and Access Management is a Global service.
 We create users and assign them to groups.
 
-Root account -> Only used to setup the account.
+**Root account** -> Only used to setup the account.
 It is a secure practice to create IAM users and groups and assign them permission.
 
-Groups contains users and NOT other groups.
+Groups contains only users and **NOT** other groups.
 A user can be in multiple groups.
-But it is not mandatory for a user to be in groups. Some users can be independent the groups. 
+But it is not mandatory for a user to be in groups. Some users can be independent of the groups. 
 
 The need for creating users and groups is to allow them to use the AWS account.
 We set permissions for those groups or users to have certain access in the account.
 
-Ther Users and groups are assigned with permissions through a JSON document called IAM Policy.
+Ther Users and groups are assigned with permissions through a JSON document called **IAM Policy**.
 These policies defines permissions for the users and groups.
 It's best pratice to apply Least Privilege Principle for any users for security reasons.
 
@@ -23,13 +23,13 @@ It's best pratice to apply Least Privilege Principle for any users for security 
 
 1. Search IAM service in AWS
 2. Notice the Top right corner, it shows Global which tells us it is a global service and not region specific service.
-3. Let's create an admin user. Go to the users section and click on create account.
-4. Now specify the user name.
+3. Let's create an admin user. Go to the users section and click on `create account`.
+4. Now specify the username.
 5. We can choose whether to provide access to the user for AWS Management console. Since we are creating admin user. We will select that.
 6. In next step we select to create an IAM user instead of using AWS Identity centre.
 7. Create password and add permissions to the user.
 8. We have options to add policies to the user or we can create group and attach the policy to the group which the user will inherit.
-9. We create a group called admin and we attach the predefined policy 'AdministratorAccess' to the group.
+9. We create a group called **admin** and we attach the predefined policy `AdministratorAccess` to the group.
 10. We can add tags to the groups to specify any remarks.
 
 Additional Points:
