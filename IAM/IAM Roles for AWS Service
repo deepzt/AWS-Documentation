@@ -1,0 +1,25 @@
+# IAM Roles for Services
+
+1. To understand what IAM Roles are, we need to be clear with the fact that there are some actions that AWS services will need to perform on our behalf. To do so, we need to assign permission to AWS services with the help of **IAM Roles**.
+
+2. These IAM roles will be just like user but these are not intended to be used by physical users but by AWS users.
+
+eg:. If an EC2 instance tries to perform certain actions in AWS, we need to assign the EC2 instance an IAM role to grant it the permissions.
+
+3. Some commonly used roles are :
+    - EC2 Roles
+    - Lambda Fucntion Roles
+    - Roles for CloudFormation
+
+# Creating Roles
+
+To create an AWS Role, we go into the `Roles` section.
+
+1. Select `Create  Roles` and we can see serveral roles that can be created. We will go through AWS Roles.
+2. Select which service we want this role to apply to.
+3. Let's consider creating roles for EC2 instance. We select `EC2`.
+4. Select specific role type as `EC2`. (This allows EC2 instances to call AWS services on our behalf)
+5. Now we need to attach a policy.
+6. We attach `IAMReadOnlyAccess` to allow our EC2 instances to have a read acces in our IAM.
+7. Now enter a Role name.
+8. Now our Role is created.
