@@ -10,11 +10,11 @@
     b. **Id** - Again for identification of the policy
     c. **Statement/s** - It consists of many other components:
 
-        i. *Sid/Statement ID*: identifier of the statement
-        ii. *Effect*: Effect of the policy, If it allows or denies certain APIs.
-        iii. *Principle*: Account/User/Role to which this policy will apply to.
-        iv. *Action*: List of API calls that this policy allows or denies. (Implementation of Effects)
-        v. *Resources*: List of resources/services the action is applied to.
-        vi. *Condition* (Optional): Conditions when these policies take effect.
+    i. *Sid/Statement ID*: identifier of the statement
+    ii. *Effect*: Effect of the policy, If it allows or denies certain APIs.
+    iii. *Principle*: Account/User/Role to which this policy will apply to.
+    iv. *Action*: List of API calls that this policy allows or denies. (Implementation of Effects)
+    v. *Resources*: List of resources/services the action is applied to.
+    vi. *Condition* (Optional): Conditions when these policies take effect.
 
 
