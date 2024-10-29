@@ -1,0 +1,29 @@
+# SSH into Different Operating Systems
+.----------------------------------.
+|                SSH     PuTTY     |
+|----------------------------------|
+| Mac              *               |
+| Linux            *               |
+| Windows < 10              *      |
+| Windows >=10     *        *      |
+.----------------------------------.
+
+# SSH in Linux/Mac
+
+Using the Security Key (.pem) file we ssh in the ec2 instance using the command `ssh -i <private_key> username@public_IP`
+
+# SSH in Windows
+
+Either using Terminal or using PuTTY
+
+In Windows 7/8, we use PuTTY for SSH
+
+- For using PuTTY, we convert the .pem file to .ppk file using PuTTYgen.
+- Specify `username@public_IP` in the command space, and create a profile.
+- In Left hand side `Auth`, we specify the .ppk private key and connect with the instance.
+
+In later version of Windows, we use terminal and use the command `ssh -i <private_key> username@public_IP`
+
+# Using EC2 Instance Connect
+
+We can use Instance Connect in AWS Management console to connect directly to the instance. 

@@ -1,0 +1,8 @@
+# Using EC2 Instance Connect
+
+Let's use EC2 Instance Connect and try to run some aws commands
+
+1. If we run command `aws iam list-users`, it throws an error saying `Unable to locate credentials.`
+2. We can setup our access keys in aws console but it is a bad practice to setup access keys in EC2 instances it will be visible to other users operating the account as well.
+3. To solve this issue, we create an IAM role for the EC2 instance that has `IAMReadOnlyAccess`. This role gives the instance the permission to read the IAM user details.
+4. Go to `Instance` > `Action` > `Security` > `Modify IAM Role` > `Choose an IAM Role`
