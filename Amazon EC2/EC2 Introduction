@@ -36,8 +36,10 @@ It mainly consists in the capability of:
 
 # Types of EC2 Instances
 
+Different types of Instance types that are optimised for different use cases can be found in this link: [https://aws.amazon.com/ec2/instance-types/]
+
 ----------------------------------------------------------------------------------------------------------
-|Instances      |   vCPU    |   Mem(GB)  |  Storage     | Network Performance | EBS Bandwidth(Mbps)|
+|Instances      |   vCPU    |   Mem(GB)  |  Storage     | Network Performance | EBS Bandwidth(Mbps)|      |
 ----------------------------------------------------------------------------------------------------------
 | t2.micro          1             1         EBS-Only          Low to Moderate                             |
 ----------------------------------------------------------------------------------------------------------
@@ -49,4 +51,17 @@ It mainly consists in the capability of:
 ----------------------------------------------------------------------------------------------------------
 | m5.8xlarge        32            128       EBS Only          10 Gbps                      6800           |
 ----------------------------------------------------------------------------------------------------------
+
+AWS has the following name convention:
+
+m5.2xlarge
+
+m : Instance class
+5 : Generation (AWS improves them over time)
+2x : Size of the instance class
+
+1. General purpose: Good balace between compute, memory and networking. eg: t2, m4, m5, m5a, m5n, t3, t3a, t4g etc.
+2. Compute optimised: Good for Batch procesing, media transcoding, high performing web servers or computing,scientific modeling and machine learning, dedicated game servers.  eg: c4, c5, c5a, c5n, c6g (C series/Compute series)
+3. Memory Optimized: Workloads that contains processing of large datasets in memory. eg: High performing non-/relational databases This series consists of instances from R series and X1, X1e etc.
+4. Storage Optimized: Tasks that require high sequencial read and write access to large datasets on local storage. Used for high frequency online transaction processing (OLTP) systems, Relational and NoSQL databases, cache for in-memory databases(eg: Redis)
 
