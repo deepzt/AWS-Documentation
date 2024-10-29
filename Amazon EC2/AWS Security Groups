@@ -25,11 +25,9 @@ As the security groups acts as a firewall, it regulates  the folowing aspects:
 
 # How to reference Security Groups from other Security Groups?
 
-If we just configure our `Security Group X`with an instance to allow inbound connections from `Security Group `A and `Security Group B`, then the instances with Security Group A and B can make connections with the first instance. 
+If we just configure our `Security Group X` with an instance to allow inbound connections from `Security Group A` and `Security Group B`, then the instances with Security Group A and B can make connections with the former instance. Consequently any other instance having other Security Group say C will not be able to connect with that instance.
 
-Any other instance having other Security Group say C will not be able to connect with that instance.
-
-# Ports to Know
+# Ports to Know (for Exam Purpose)
 
 22 -> SSH (Secure Shell) - Log in to Linux instance
 21 -> FTP (File Trandfer Protocol) - Upload files in file share
