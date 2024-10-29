@@ -7,25 +7,25 @@ EC2 stands for Elastic Cloud Compute. It is Infrastructure as a Service (IaaS).
 It mainly consists in the capability of:
 
 - Renting virtual machines.
-- Storing data on virtual drives or **Elastic Block Stores** (EBS).
-- Distributing loads across machines using **Elastic Load Balancer** (ELB).
-- Scaling the services using **Auto-Scaling Group** (ASG).
+- Storing data on virtual drives or Elastic Block Stores (EBS).
+- Distributing loads across machines using Elastic Load Balancer (ELB).
+- Scaling the services using Auto-Scaling Group (ASG).
 
 # When it comes to configuring AWS EC2, these are the following requirements.
 
-- We can choose our operating system as *Linux*, *Windows* or *Mac OS*.
+- We can choose our operating system as Linux, Windows or Mac OS.
 - The compute power (CPU) for the instance.
 - RAM for the machine.
 - Storgae space for the instance.
     i. Network-attached (EBS & EFS).
     ii. Hardware (EC2 Instance Store).
 - Network Card for speed and public IP address for the instance.
-- Firewall rules or **Security Groups**.
+- Firewall rules or Security Groups.
 
 # EC2 User Data
 
-1. It is pretty much possible to **bootstrap** our instances using EC2 user data script.
-2. **Bootstraping** means to lauch commands at machine startups.
+1. It is pretty much possible to bootstrap our instances using EC2 user data script.
+2. Bootstraping means to lauch commands at machine startups.
 3. The script only run once and only when the instance boots first.
 4. EC2 user data has very specific task of automating commands at instance startup.
 5. This is specially used  to configuring the instance with 
@@ -37,16 +37,16 @@ It mainly consists in the capability of:
 # Types of EC2 Instances
 
 ----------------------------------------------------------------------------------------------------------
-|**Instances**| **vCPU** | **Mem(GB)** |  **Storage**  | **Network Performance** | **EBS Bandwidth(Mbps)**|
+|Instances      |   vCPU    |   Mem(GB)  |  Storage     | Network Performance | EBS Bandwidth(Mbps)|
 ----------------------------------------------------------------------------------------------------------
-| *t2.micro*          1             1       EBS-Only          Low to Moderate                             |
+| t2.micro          1             1         EBS-Only          Low to Moderate                             |
 ----------------------------------------------------------------------------------------------------------
-| *t2.xlarge*         4             16      EBS-Only          Moderate                                    |
+| t2.xlarge         4             16        EBS-Only          Moderate                                    |
 ----------------------------------------------------------------------------------------------------------
-| *c5d.4xlarge*       16            32      1x400 NVMe SSD    Upto 10 Gbps                 4750           |
+| c5d.4xlarge       16            32        1x400 NVMe SSD    Upto 10 Gbps                 4750           |
 ----------------------------------------------------------------------------------------------------------
-| *r5.16xlarge*       64            512     EBS Only          20 Gbps                      13600          |
+| r5.16xlarge       64            512       EBS Only          20 Gbps                      13600          |
 ----------------------------------------------------------------------------------------------------------
-| *m5.8xlarge*        32            128     EBS Only          10 Gbps                      6800           |
+| m5.8xlarge        32            128       EBS Only          10 Gbps                      6800           |
 ----------------------------------------------------------------------------------------------------------
 
