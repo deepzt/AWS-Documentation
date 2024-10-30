@@ -1,0 +1,71 @@
+# EC2 Instances Purchasing Options
+
+1. On-Demand Instances: Used for short workloads, predictabled pricing, pay by second
+
+    - Pay what you use:
+        - Linux or Windows: billing per second after the first minute
+        - All other OS: billing per hour
+    - Has highest cost but no upfront payment and no long term commmitment.
+    - No long term commitments
+    - Recommended for short term and un-interupted workloads where you can't predeict how the application will behave.
+
+2. Reserved Instances (1 & 3 years): It is used for long workloads and flexible instance types. 
+
+    - Provides 72% discount compared to On-Demand
+    - You can reserver a specific instance attributes (instance types, OS, Region)
+    - Reservation period - 1 year ( +discount ) or 3 years ( +++ discounts )
+    - Payment Options - No upfront (+), Partial (++) upfront or All upfront (+++)
+    - In terms of scope: Regional or Zonal (capacity in AZ)
+    - Recomended for steady state usage application
+    - You can buy or sell in marketplace.
+
+    - There's another plan called Converible Reserved Instance
+        - it allows you to change instance types, OS, scope and tenancy.
+        - with these flexibility you get it at 66% discount. 
+
+3. Saving plan (1 & 3 years): Commitment to an amount of usage, long workloads. Contrary to Reserved plan, this plan is commitment to budget rather than instance types.
+
+    - For discount based don long-term usage. (same asa reserved.)
+    - Commit to certain type of usage ($10/hour for 1 or 3 years.)
+    - Usage beyond Savings Plans is billed at On-Demand price.
+    - It is locked to specific instance family and AWS region. (eg.: M5 in us-east-I)
+    - Flexible across instance size and OS and tenancy(host, deicated or default).
+
+4. Spot Instances: Used for short workloads, cheap, can lose instances. These are less reliable.
+
+    - Upto 90% discount
+    - You can lose access at any moment if the max price is less than your current spot price.
+    - It is the MOST cost-efficient instance in AWS.
+    - Useful for workloads that are resilient to failure.
+        - Batch jobs
+        - Data analysis
+        - Image processing
+        - Any distributed workloads
+        - NOT SUITED for critical workloads.
+
+5. Dedicated Hosts: Book an entire phisical server, control instance placement.
+
+    - A physical server with EC2 instance capacity fully dedicated to your use.
+    - Allows us for address compliance requirements and use your existing server.
+    - Purchasing Option:
+        - On-Demand
+        - Reserved
+    - Most expensive option
+    - Useful for Software that have complicated licensing model (BYOL - Bring Your Own License).
+
+6. Dedicated Instances: No other customer will share your hardware.
+
+    - Instances runs on hardware that is dedicated to you.
+    - May share hardware with other instances in same acocunt.
+    - No control over instance placements.
+    - Dedicated Instance means you have your own instance in your own hardware.
+    - In dedicated host, you get access to the physical server itself and it gives into visibility into lower level hardware.
+
+6. Capacity Reservations: Reserve capacity in a specific AZ for any duration.
+
+    - Reserve On-Demand instances capacity in a specific AZ for any duration.
+    - You always have access to EC2 capacity when you need it.
+    - No time commitment,no billing doscounts.
+    - You are charged at On-Demand rate whether you run instances or not.
+    - Suitable for short term, uninterupted workloads that need to be in a specific AZ.
+
