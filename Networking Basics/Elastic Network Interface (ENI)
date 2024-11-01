@@ -1,0 +1,17 @@
+# Elastic Network Interface
+
+1. It is a logical networking component in a VPC that represents virtual network card.
+2. We can create and attach the ENI to the instances.
+3. Works in same Availability Zone.
+4. Attributes of Elastic Network Interface:
+    - A primary private IPv4 address from the IPv4 address range of your subnet
+    - A primary IPv6 address from the IPv6 address range of your subnet
+    - Secondary private IPv4 addresses from the IPv4 address range of your subnet
+    - One Elastic IP address (IPv4) for each private IPv4 address
+    - One public IPv4 address
+    - Secondary IPv6 addresses
+    - Security groups
+    - A MAC address
+    - A source/destination check flag
+    - A description
+5. VPC Flow logs can be attached to the ENI to capture ingres and egres traffic information.
