@@ -1,0 +1,28 @@
+# Public IP
+
+1. Public IP means machine can be identified on the Internet.
+2. Must be unique across the whole web.
+3. It can be geo-located easily.
+
+# Private IP
+
+1. Private IP means the machine can only be identified in the private network only.
+2. The IP must be unique across the private network.
+3. BUT two different private networks can have same IPs.
+4. Machines connect to internet using a NAT + internet gateway (proxy).
+5. Only specified range of IPs can be used as private IPs.
+
+# Elastic IP
+
+1. When you stop and then start an EC2 instance, it can change its public IP.
+2. If you need to have a fixed public IP for your instance, you need to have an Elastic IP.
+3. An Elastic IP is a public IPv4 IPyou can own as long as you dont delete it.
+4. You can attach it one instance at a time.
+5. With an Elastic IP address, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your acount.
+6. YOu can only have 5 Elastic IP in your account. (can be increased)
+7. It is not a good practice to use Elastic IP.
+    - They often reflec poor architectural decision.
+    - Instead we can use a random public IP and register a DNS name to it.
+    - Or a Load Balancer adn dont use a public IP at all.
+
+
