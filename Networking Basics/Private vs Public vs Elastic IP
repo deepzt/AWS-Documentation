@@ -23,6 +23,6 @@
 7. It is not a good practice to use Elastic IP.
     - They often reflec poor architectural decision.
     - Instead we can use a random public IP and register a DNS name to it.
-    - Or a Load Balancer adn dont use a public IP at all.
+    - Or a Load Balancer and dont use a public IP at all.
 
 
