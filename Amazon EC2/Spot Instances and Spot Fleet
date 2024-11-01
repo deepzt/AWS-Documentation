@@ -1,0 +1,34 @@
+# How to terminate spot instances?
+
+We need to understand spot requests. Using spot requests, we are defining the following things:
+
+- Maximum price
+- Lauch specification 
+- Desired type of instance
+- Request type: One-Time | Persistant
+- Valid From, Valid Untill
+
+So, there are two types of spot requests:
+
+- One time request -> Once the spot instances are deployed the request ends.
+- Persistant request -> Even if the instances are stopped, the requests kicks in and demands for the instances again given it is in the valid time period.
+
+So in case of persistant request, we need to cancel the request and then terminate the spot instances.
+
+In case we terminate the spot instances first, the requests will kick in and AWS is going to deploy the required instances agian.
+
+# Spot Fleet
+
+1. Spot Fleet are the set of spot instances and optionally On-Demand Instances.
+
+2. The Spot Fleet will try to meet the target capacity with price contraints.
+    - Define possible launch pools instance types, OS, Availability Zones.
+    - Can have multiple launch pools, so that the fleet can choose.
+    - Spot fleet stops launching instances when reaching capacity or max cost.
+
+3. Strategies to allocate Spot Instances
+    - lowestPrice: from the pool with the lowest price (cost optimization, short workload.)
+    - diversified: distributed across the pools (great for availability and long workloads.)
+    - capacityOptimized: pool with the optimal capacity for the number of instances.
+    - priceCapacityOptimized (recommended): pools with highest capacity available, then select the pool with the lowest price (best choice for  the most workloads).
+
