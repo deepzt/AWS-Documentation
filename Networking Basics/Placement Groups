@@ -6,19 +6,19 @@ Placement Groups helps to have more control over the EC2 Instances placement str
 
 Overall there are 3 type of Placement Groups
 
-- Cluster - group of instances in a low latency network in a single AZ.
+1. Cluster - group of instances in a low latency network in a single AZ.
 
     - 10 Gbps bandwidth between instances with Enhanced Networking enabled
     - If the AZ fails, it fails at the same time.
 
-- Spread - spreads instances across underlying hardware. (max 7 instances per group per AZ).
+2. Spread - spreads instances across underlying hardware. (max 7 instances per group per AZ).
 
     - Can span across multiple AZ.
     - reduced risk of simultaneous failure.
     - Limited to 7 instances per AZ per placement group.
     - Good for high availability.
 
-- Partition - spreads instances over different partition within an AZ. (scales to 100 instances per group)
+3. Partition - spreads instances over different partition within an AZ. (scales to 100 instances per group)
 
     - Upto 100s of EC2 instances 
     - The partition do not share racks with the instances in other partition.
