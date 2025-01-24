@@ -1,0 +1,25 @@
+# EBS Snapshots
+
+1. EBS Snapshots are basically a backup at any particular point of time of the EBS Volume.
+2. It is not recommended to detach your EBS volume to take snapshot but recommended.
+
+# Use Case
+
+1. We can copy snapshots across different Availability Zones or Regions.
+
+# EBS Snapshot Features
+
+1. EBS Snapshot Archive
+
+- It allows us to move the EBS snapshot to a lower-cost storage tier (75% cheaper) for long term retention.
+- It take upto 24 to 72 hours to restore the archive.
+
+2. Recycle Bin for EBS Volume
+
+- It allows prevention of accidental deletion of the EBS volume.
+- We can setup rules to retain the deleted snapshots that can be from 1 day to 1 year.
+
+3. Fast Snapshot Restore (FSR)
+
+- This feature allows the restoring of the snapshot instantly with full provisioned performance without the wait for initialization.
+- It can cost significantly more than other features.
