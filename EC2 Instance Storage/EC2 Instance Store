@@ -1,0 +1,11 @@
+# Local EC2 Instance Store 
+
+This type of storage is temporary high-performance harware disk (attached to physical server)
+
+Few points to remember are:
+
+1. If you terminate the instance, the instance store attached to the instance will also lose the storage.
+2. It has better I/O operations per second. (can reach upto 3 million IOPS)
+3. Good for buffer, cache and temporary storage.
+4. There is no additional cost to it. It is included in the cost of instance charge.
+

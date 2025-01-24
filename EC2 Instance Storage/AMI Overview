@@ -1,0 +1,16 @@
+# AMI Overview
+
+1. AMI stands for Amazon Machine Image
+2. AMI is a customization of an EC2 Instance where we can add our own software, configuration, operating system, monitoring and more.
+3. It allows the EC2 instance to have faster load timing as the software are pre packaged.
+4. AMIs can be build for a specific region and can be copied across regions.
+5. EC2 instances can be fired up from either AWS AMIs or your own AMIs which you maintain.
+6. Additionally there are AMIs in AWS Marketplace.
+
+# Use Case
+
+Create an AMI which has httpd service installed and use it to create a simple webpage in another instance.
+
+1. Let's fire up an EC2 instance with user data to install httpd service for apache server and enable it.
+2. Next we create an AMI. For doing this, we right click on the instance and go to `image and template` and `create image` 
+3. Navigate to AMIs on left panel to launch an instance using the AMI or go to the instance tab and navigate to `Application and OS Images` and `My AMIs`.
