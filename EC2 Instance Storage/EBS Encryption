@@ -1,0 +1,17 @@
+# EBS Encryption
+
+1. When we create an EBS Volume, we get the following features:
+- Data at rest is encrypted inside the volume.
+- All the data in flight moving between the instances and the volume is encrypted.
+- All the snapshots will be encrypted.
+- All volumes created from the snapshot are encrypted.
+
+2. All the encryption and decryption are handled transparently.
+3. Encryption has a minimal impact on latency.
+4. EBS encryption leverages keys from KMS (AES-256).
+5. Snapshot of an unencrypted volume is unencrypted.
+6. Copying an unencrypted snapshot allows encryption.
+7. Snapshot of encrypted volumes are also encrypted. 
+
+You can encrypt an unencrypted snapshot on the fly by using `Create volume from snapshot` option in the `Actions` tab.
+

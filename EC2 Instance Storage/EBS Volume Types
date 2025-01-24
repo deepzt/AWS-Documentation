@@ -1,0 +1,10 @@
+# EBS Volume Types
+
+There are 6 types of EBS Volumes
+
+1. gp2/gp3 (SSD): General Purpose SSD volumes that balances price and performance for wide variety of workloads.
+2. io1/io2 Block Express (SSD): Highest performance SSD volumes for critical low latency high performance workloads.
+3. ST1 (HDD):Low cost HDD volumes designed for frequently accessed workloads.
+4. SC1 (HDD): Lowest cost HDD volumes for less frequently access workloads.
+5. For the EBS Volumes, only the gp2/gp3 and io1/io2 are used for root OS to operate.
+
