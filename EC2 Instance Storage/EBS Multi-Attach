@@ -1,0 +1,12 @@
+# EBS Multi-Attach
+
+1. It attaches the EBS volumes to multiple EC2 instances in the same availability zones.
+2. Each instance will have a full read and write permissions to high performance volumes.
+
+# Use Cases
+
+1. Increase the availability in a clustered Linux application.
+2. Applications must manage concurrent write operations.
+3. We can connect upto 16 EC2 instances at a time.
+
+
