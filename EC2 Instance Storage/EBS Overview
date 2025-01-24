@@ -1,0 +1,21 @@
+# EBS Volume 
+
+1. EBS Stands for Elastic Block Store which is a network drive.
+2. It allows instance data to persists even after termination.
+3. It can be mounted to only one instance at a time.
+4. They are bound to specific availability zones.
+
+# Properties
+
+1. Since it is a network drive, it can be detached and attached to other EC2 instances.
+2. There can be a bit of latency.
+3. It is locked to an Availability Zone which means if it is created in us-east-1a, it cannot be attached to us-east-1b.
+4. But to move a volume across, we first need to snapshot it.
+5. We need to provision the capacity i.e size in GBs and I/O per second (IOPS).
+
+# Exam Case Scenario
+
+1. We can enable or disable the deletion of EBS volume on termination of EC2 instance.
+2. By default the root EBS volume is set to delete after termination.
+3. The use case can be to preserve the root volume when instance is terminated.
+
