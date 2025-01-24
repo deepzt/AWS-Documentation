@@ -6,6 +6,7 @@
 # Use Case
 
 1. We can copy snapshots across different Availability Zones or Regions.
+2. We can create volumes using snapshots and use it in different AZs.
 
 # EBS Snapshot Features
 
