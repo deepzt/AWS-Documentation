@@ -1,0 +1,36 @@
+# Elastic File System (EFS)
+
+1. EFS is a managed network file system that can be mounted on many EC2 .
+2. It works with EC2 instances in multiple AZs.
+3. Highly available and expensive, pay per use.
+
+# Use Cases of EFS 
+
+1. It can be used for content management, data sharing, web serving, Wordpress.
+2. Uses NFSv4.1 protocol.
+3. The EFS uses security group for access.
+4. Compatible with Linux based AMIs(not Windows).
+5. It can be used with encryption at rest.
+6. The file system scales automatically and uses pay-per-use.
+
+# Some features of EFS
+
+1. 1000s of consurrent NFS clients, 10GB+ /s throughput.
+2. Grow to Petabyte-scale network file system, automatically.
+3. We can set performance mode for EFS at the creation time
+    - General Purpose (default): latency sensitive use cases (web server, CMS etc.).
+    - Max I/O: High latency, throughput (big data, media proocessing).
+4. The throughput mode of the EFS are:
+    - Bursting: 1 TB = 50MB/s + burst upto 100MB/s
+    - Provisioned: Set your throughput regardless of storage size.
+    - Elastic: automatically scales throughput up or down based on your workloads.
+
+# EFS Storage Classes
+
+1. Storage Tier(Storage Lifecycle Management feature):
+    - Standard : for frequently access files.
+    - Infrequently accessed (EFS IA): Cost to retrieve files but lower price to store.
+    - Archive: Rarely accessed data. 
+
+2. Implement lifecycle policies to move files between storage tiers.
+3. Can be created within a Region across multiple AZs or One zone(One AZs).

@@ -1,0 +1,14 @@
+# Difference between EBS and EFS
+
+1. EBS volumes can be attached to one EC2 instance at a time (Except the io1 and io2 multi attach instances).
+2. EBS volumes are locked to an Availability Zone.
+3. For gp2 EBS instances, IO increases if the disk size increases.
+4. For gp3 and io1, we can increase the IO independently.
+5. To migrate an EBS volume across AZ, we need to take a snapshot, and we can restore the snapshot in another AZ.
+6. For the deletion of the EC2 instance, the root EBS volume also get deleted, but it can be configured while creating the EC2 instance.
+
+
+1. The EFS volume is the network files systems that can be attached to 100s of instances concurrently.
+2. It is only used with Linux Instances.
+3. EFS costs higher than the EBS.
+4. We can leverage storage tiers for cost saving and storage lifecycle management.
