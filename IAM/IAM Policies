@@ -6,7 +6,7 @@
 4. If any user is in multiple groups, they will inherit all the permissions of those groups set by the policies.
 5. The Policy structure is as follows:
 
-    a. Version - Usually use dfor identification of the policy
+    a. Version - Usually use for identification of the policy
     b. Id - Again for identification of the policy
     c. Statement/s - It consists of many other components:
 
