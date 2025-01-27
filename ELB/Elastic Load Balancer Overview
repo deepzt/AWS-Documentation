@@ -1,0 +1,23 @@
+# Elastic Load Balancer (ELB)
+
+1. A load balancer distributes incoming traffic across multiple backend servers (EC2 instances in AWS) to ensure no single server becomes overwhelmed.
+2. When users connect to the load balancer, it routes traffic to different backend servers based on specific algorithms and health checks.
+
+# Types of Load Balancers in AWS:
+
+1. Classic Load Balancer (CLB): Older generation, supports HTTP, HTTPS, TCP, and SSL protocols.
+2. Application Load Balancer (ALB): Supports HTTP, HTTPS, and WebSocket protocols. Best for web applications.
+3. Network Load Balancer (NLB): Supports TCP, TLS, and UDP protocols. Ideal for high-performance and low-latency applications.
+4. Gateway Load Balancer (GWLB): Operates at the network layer, suited for network appliances.
+
+# Key Benefits:
+
+1. Single Point of Access: Users connect to a single endpoint provided by the load balancer.
+2. High Availability: Automatically handles failures of backend servers.
+3. SSL Termination: Manages SSL/TLS encryption and decryption.
+4. Health Checks: Monitors the health of backend servers and routes traffic only to healthy instances.
+5. Scalability: Easily integrates with other AWS services for automatic scaling and management.
+
+# Security:
+1. Public Access: Allows users to connect via HTTP or HTTPS.
+2. Internal Traffic: Ensures that only traffic from the load balancer reaches the backend servers using security group rules.
