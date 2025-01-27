@@ -19,5 +19,6 @@
 5. Scalability: Easily integrates with other AWS services for automatic scaling and management.
 
 # Security:
+
 1. Public Access: Allows users to connect via HTTP or HTTPS.
 2. Internal Traffic: Ensures that only traffic from the load balancer reaches the backend servers using security group rules.
