@@ -1,0 +1,85 @@
+# Overview
+
+1. ALB operates at Layer 7 (HTTP/HTTPS) of the OSI model.
+2. Designed for routing requests to multiple HTTP applications across machines, organized into target groups.
+
+# Key features include:
+
+1. Support for HTTP/2 and WebSockets.
+2. Automatic redirection from HTTP to HTTPS.
+3. Intelligent routing based on URL path, hostname, query strings, or headers.
+
+# Core Features and Capabilities
+
+1. Routing Features:
+
+    - Path-Based Routing: Example:
+        '/users' → Target Group A
+        '/search' → Target Group B
+
+    - Hostname-Based Routing:
+        'one.example.com' → Target Group A
+        'other.example.com' → Target Group B
+
+    - Query String/Parameter Routing:
+        '?Platform=Mobile' → Target Group A
+        '?Platform=Desktop' → Target Group B
+
+# Target Groups:
+
+1. ALB routes traffic to target groups based on routing rules.
+
+2. Types of target groups:
+    - EC2 Instances (can be managed via Auto Scaling Groups).
+    - ECS Tasks (used in containerized environments).
+    - Lambda Functions (enabling serverless architectures).
+    - Private IPs (e.g., on-premise servers in a hybrid setup).
+
+3. Microservices-Friendly:
+
+    - Ideal for containerized applications (e.g., ECS) and microservices.
+    - Supports dynamic port mapping, simplifying ECS service deployment.
+
+4. Fixed Hostname:
+
+    - Like the Classic Load Balancer, ALB provides a fixed DNS hostname for accessing it.
+
+5. Health Checks:
+
+    - Performed at the target group level.
+    - Ensures only healthy targets receive traffic.
+
+# Advanced Features
+
+    - Connection Termination:
+        i. ALB terminates client connections and establishes new connections with targets.
+        ii. Targets see ALB's IP (private) instead of the client's IP.
+        iii. Use X-Forwarded-For, X-Forwarded-Port, and X-Forwarded-Proto headers to access:
+            - Client IP
+            - Port
+            - Protocol
+    - Cross-Environment Routing:
+        i. ALB can route between:
+            - AWS-hosted EC2 instances.
+            - On-premises servers using private IPs.
+# Comparison with Classic Load Balancer
+
+1. ALB: Supports multiple applications on one load balancer using intelligent routing rules.
+2. Classic Load Balancer (CLB): Requires a separate load balancer for each application.
+
+# Example Use Cases
+
+1. Microservices Deployment:
+
+    '/users' → User service in Target Group A.
+    '/search' → Search service in Target Group B.
+
+2. Hybrid Environment:
+
+    Target Group A: EC2 instances in AWS.
+    Target Group B: On-premise servers (private IPs).
+
+3. Device-Based Traffic Routing:
+
+    Mobile traffic (?Platform=Mobile) → Target Group A.
+    Desktop traffic (?Platform=Desktop) → Target Group B.
