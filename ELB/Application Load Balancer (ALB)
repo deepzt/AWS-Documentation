@@ -62,6 +62,7 @@
         i. ALB can route between:
             - AWS-hosted EC2 instances.
             - On-premises servers using private IPs.
+            
 # Comparison with Classic Load Balancer
 
 1. ALB: Supports multiple applications on one load balancer using intelligent routing rules.
