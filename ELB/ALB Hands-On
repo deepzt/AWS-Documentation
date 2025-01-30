@@ -1,0 +1,37 @@
+# ALB Hands On Practice
+
+1. Launching EC2 Instances:
+
+    * Created two EC2 instances with Amazon Linux 2 and t2.micro instance type.
+    * We dont need to set up SSH since we will not be using it.
+    * Configured security groups to allow HTTP traffic.
+    * Enter user data for installing web server and creating a default page "Hello World" for response.
+    * Verified both instances by accessing their IPv4 addresses and receiving responses.
+
+2. Creating an Application Load Balancer (ALB):
+
+    * Chose ALB over other types (NLB for high-performance TCP/UDP, Gateway LB for security).
+    * Named it DemoALB and set it to Internet-facing with IPv4 addressing.
+    * For network mapping, deploy the ALB in available AZs.
+    * Created a new security group allowing HTTP traffic.
+    * Create a target group for the ALB, in this case its the pair of EC2 instances.
+    
+
+3. Setting Up Target Groups & Routing:
+
+    * Created a Target Group (TG) named demo-tg-alb for HTTP traffic on port 80.
+    * Registered both EC2 instances in the target group.
+    * Linked the target group to the ALB's listener on port 80.
+    * Created and provisioned the ALB successfully.
+
+4. Testing Load Balancing:
+
+    * Used ALB’s DNS name to access the instances.
+    * Refreshing the page showed responses switching between the two instances, proving load balancing.
+    * Verified both instances were healthy in the Target Group dashboard.
+
+5. Simulating Instance Failure & Recovery:
+
+    * Stopped one instance and saw it marked as unhealthy in the target group.
+    * ALB stopped routing traffic to it, proving automatic failover.
+    * Restarted the instance, observed it becoming healthy again, and verified load balancing resumed.
