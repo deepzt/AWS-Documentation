@@ -1,0 +1,57 @@
+## Network Load Balancer (NLB) Overview
+
+### Key Characteristics
+
+- **Layer 4 Load Balancer**: Handles TCP and UDP traffic.
+- **High Performance**: 
+  - Can manage millions of requests per second.
+  - Ultra-low latency.
+- **Static IPs**: 
+  - One static IP per availability zone.
+  - Can assign elastic IPs to each AZ.
+- **AWS Free Tier**: Not included.
+
+### Use Cases
+
+- **Extreme Performance**: Suitable for applications requiring high throughput and low latency.
+- **Static IPs**: Ideal for applications needing exposure through a set of static IPs.
+- **TCP/UDP Traffic**: Best choice for handling TCP or UDP traffic.
+
+### Setup and Configuration
+
+1. **Target Groups**:
+   - Can include EC2 instances or hardcoded private IP addresses.
+   - Supports backend servers in your data center.
+   
+2. **Combining with ALB**:
+   - NLB can be placed in front of an ALB.
+   - Provides fixed IPs and advanced HTTP handling rules.
+
+### Health Checks
+
+- **Supported Protocols**: TCP, HTTP, HTTPS.
+- **Configuration**: Define health checks based on the supported protocols for backend applications.
+
+### Detailed Steps
+
+1. **Create Target Groups**:
+   - Define target groups for the NLB.
+   - Register EC2 instances or private IP addresses in the target groups.
+
+2. **Redirect Traffic**:
+   - NLB redirects TCP or UDP traffic to the target groups.
+   - Can use TCP traffic on the frontend and HTTP on the backend.
+
+3. **Static IP Assignment**:
+   - Assign elastic IPs to each availability zone for static IP exposure.
+
+4. **Health Checks**:
+   - Configure health checks using TCP, HTTP, or HTTPS protocols to ensure backend application health.
+
+### Exam Tips
+
+- **Remember**: 
+  - NLB for TCP/UDP traffic.
+  - Static IPs for applications.
+  - High performance and low latency.
+  - NLB in front of ALB for fixed IPs and HTTP handling rules.

@@ -1,0 +1,54 @@
+## Gateway Load Balancer (GWLB) Overview
+
+### Key Characteristics
+
+- **Purpose**: Deploy, scale, and manage third-party network appliances in AWS.
+
+- **Use Cases**:
+  - Firewall
+  - Intrusion Detection and Prevention Systems (IDPS)
+  - Deep Packet Inspection
+  - Network-level payload modification
+
+### Functionality
+
+1. **Traffic Inspection**:
+   - All network traffic is routed through the GWLB.
+   - Traffic is inspected by third-party virtual appliances (e.g., EC2 instances).
+
+2. **Traffic Flow**:
+   - Users access applications through a load balancer (e.g., ALB).
+   - Traffic is first routed to the GWLB.
+   - GWLB distributes traffic to a target group of virtual appliances.
+   - Appliances analyze traffic (e.g., firewall, IDPS).
+   - If traffic is accepted, it is sent back to the GWLB.
+   - GWLB forwards traffic to the application.
+
+3. **Route Table Updates**:
+   - VPC route tables are modified to route traffic through the GWLB.
+
+### Technical Details
+
+- **Layer 3 Operation**: Network layer for IP packets.
+
+- **Functions**:
+  - Transparent Network Gateway: Single entry and exit point for traffic in the VPC.
+  - Load Balancer: Distributes traffic across virtual appliances in the target group.
+
+### Protocols
+
+- **GENEVE Protocol**: Used on port 6081 for GWLB.
+
+### Target Groups
+
+- **Third-Party Appliances**:
+  - EC2 instances (registered by instance ID).
+  - Private IP addresses (for appliances in your own data center).
+
+### Exam Tips
+
+- **Remember**:
+  - GWLB for network traffic inspection and third-party appliance management.
+  - Operates at Layer 3.
+  - Uses GENEVE protocol on port 6081.
+

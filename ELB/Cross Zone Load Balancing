@@ -1,0 +1,60 @@
+## Cross Zone Load Balancing Overview
+
+### Key Characteristics
+
+- **Purpose**: Distribute traffic evenly across all registered instances in all availability zones (AZs).
+
+- **Behavior**:
+  - With cross zone load balancing: Traffic is evenly distributed across all instances in all AZs.
+  - Without cross zone load balancing: Traffic is distributed within each AZ, potentially causing imbalance if instances are unevenly distributed.
+
+### Example Scenario
+
+1. **With Cross Zone Load Balancing**:
+   - Two AZs: AZ1 with 2 EC2 instances, AZ2 with 8 EC2 instances.
+   - Client sends 50% of traffic to each ALB instance.
+   - Each ALB instance distributes traffic evenly across all 10 EC2 instances (10% each).
+
+2. **Without Cross Zone Load Balancing**:
+   - Client sends 50% of traffic to each AZ.
+   - Each ALB instance distributes traffic only within its AZ.
+   - Instances in AZ1 receive 25% of traffic each, instances in AZ2 receive 6.25% each.
+
+### Load Balancer Types and Cross Zone Load Balancing
+
+1. **Application Load Balancer (ALB)**:
+   - Enabled by default.
+   - No charges for inter-AZ data transfers.
+   - Can be disabled at the target group level.
+
+2. **Network Load Balancer (NLB)**:
+   - Disabled by default.
+   - Enabling incurs charges for inter-AZ data transfers.
+
+3. **Gateway Load Balancer (GWLB)**:
+   - Disabled by default.
+   - Enabling incurs charges for inter-AZ data transfers.
+
+4. **Classic Load Balancer (CLB)**:
+   - Disabled by default.
+   - Enabling does not incur charges for inter-AZ data transfers.
+   - Note: CLB is being retired and may not be relevant for future use.
+
+### Configuration Steps
+
+1. **Enable/Disable Cross Zone Load Balancing**:
+   - Go to the load balancer attributes in the AWS Management Console.
+   - Edit the attributes to turn cross zone load balancing on or off.
+
+2. **ALB Specific Configuration**:
+   - Cross zone load balancing is on by default.
+   - Can be overridden at the target group level.
+
+### Exam Tips
+
+- **Remember**:
+  - Cross zone load balancing distributes traffic evenly across all instances in all AZs.
+  - Default settings vary by load balancer type (ALB, NLB, GWLB, CLB).
+  - Charges for inter-AZ data transfers depend on the load balancer type and configuration.
+  
+- **Configuration**: Know how to enable and configure cross zone load balancing in the AWS Management Console.
