@@ -1,0 +1,72 @@
+## SSL and TLS Certificates Overview
+
+### Key Concepts
+
+- **SSL (Secure Sockets Layer)**: Encrypts transfer connections.
+- **TLS (Transport Layer Security)**: Newer version of SSL, commonly used.
+- **In-Flight Encryption**: Encrypts data between clients and load balancers.
+
+### SSL Certificates
+
+- **Issued by Certificate Authorities**: Examples include Comodo, Symantec, GoDaddy, GlobalSign, Digicert, Letsencrypt.
+- **Purpose**: Encrypt connections between clients and load balancers.
+- **Expiration**: Must be renewed regularly to maintain authenticity.
+
+### Load Balancer Integration
+
+1. **HTTPS Connections**:
+   - Users connect over HTTPS to the load balancer.
+   - Load balancer performs SSL certificate termination.
+   - Backend communication can be HTTP (unencrypted) within the VPC.
+
+2. **X.509 Certificates**:
+   - Managed using AWS Certificate Manager (ACM).
+   - Can upload custom certificates to ACM.
+   - HTTPS listeners require a default certificate and can support multiple domains.
+
+### Server Name Indication (SNI)
+
+- **Purpose**: Allows multiple SSL certificates on one web server to serve multiple websites.
+- **Function**: Client indicates the hostname during the initial SSL handshake.
+- **Support**: Works with ALB, NLB, and CloudFront. Not supported by CLB.
+
+### Example Scenario
+
+1. **ALB with Multiple Domains**:
+   - ALB has two target groups: `www.mycorp.com` and `Domain1.example.com`.
+   - ALB uses SNI to load the correct SSL certificate based on the hostname.
+   - Routes traffic to the appropriate target group.
+
+### Supported Load Balancers
+
+1. **Classic Load Balancer (CLB)**:
+   - Supports only one SSL certificate.
+   - For multiple hostnames, use multiple CLBs.
+
+2. **Application Load Balancer (ALB)**:
+   - Supports multiple listeners with multiple SSL certificates.
+   - Uses SNI for hostname-based routing.
+
+3. **Network Load Balancer (NLB)**:
+   - Supports multiple listeners with multiple SSL certificates.
+   - Uses SNI for hostname-based routing.
+
+### Configuration Steps
+
+1. **Set Up HTTPS Listener**:
+   - Specify a default certificate.
+   - Add optional certificates for multiple domains.
+
+2. **Enable SNI**:
+   - Ensure the load balancer supports SNI (ALB, NLB, or CloudFront).
+   - Configure hostname-based routing rules.
+
+### Exam Tips
+
+- **Remember**:
+  - SSL/TLS for in-flight encryption.
+  - SNI for multiple SSL certificates on one load balancer.
+  - ALB and NLB support multiple certificates using SNI.
+  - CLB supports only one certificate.
+  
+- **Configuration**: Know how to set up HTTPS listeners and manage SSL certificates in AWS.
