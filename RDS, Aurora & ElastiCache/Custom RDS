@@ -1,0 +1,33 @@
+# Custom RDS
+
+1. What is RDS Custom?
+
+- RDS Custom provides access to the underlying operating system (OS) and database for customization, unlike regular RDS where you don't have access to the OS.
+
+- Supported Databases: Oracle and Microsoft SQL Server.
+
+2. Key Benefits of RDS Custom:
+
+- Full Admin Access: You have full administrative control over the underlying operating system and database.
+
+- Customization: Allows you to configure internal settings, install patches, and enable native features that are not available with standard RDS.
+
+- SSH/SSM Access: You can access the underlying EC2 instance using SSH or SSM Session Manager for custom configurations.
+
+3. Operational Management with RDS Custom:
+
+- Automation: RDS Custom still provides automated setup, scaling, and operational benefits like standard RDS, but the difference is the added ability to perform customizations on the OS and database.
+
+- Deactivating Automation: To perform customizations, it's recommended to disable automation mode to prevent RDS from performing maintenance or scaling operations during the customization process.
+
+4. Precautions When Using RDS Custom:
+
+- Backup: Before making customizations, it's important to take a database snapshot to ensure that you can recover from any mistakes or failures.
+
+- Risk: Customizing the underlying EC2 instance could potentially disrupt AWS-managed operations, so it's important to proceed with caution.
+
+5. Summary - RDS vs. RDS Custom:
+
+- RDS: AWS manages the database and operating system. No access to underlying infrastructure.
+
+- RDS Custom: Provides admin access to the OS and database for Oracle and SQL Server only. Allows full customization and control.

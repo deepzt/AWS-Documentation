@@ -1,0 +1,54 @@
+# Read Replicas
+
+1. RDS Read Replicas:
+
+**Purpose**: Scale read operations, not for write operations.
+
+**How It Works**:
+
+- Asynchronous Replication: Data is replicated from the master database to the replicas, meaning data is eventually consistent.
+- Can create up to 15 Read Replicas.
+- Options for replicas:
+- Same Availability Zone (AZ)
+- Cross Availability Zone
+- Cross Region
+- Promoting Read Replicas: A Read Replica can be promoted to its own database, becoming independent of the replication.
+
+**Use Case**: Commonly used for offloading read-heavy workloads, like running reporting or analytics on the replica without affecting the main production database.
+Only Read Operations: Can only handle SELECT queries (reading data). Write operations like INSERT, UPDATE, DELETE are not allowed on Read Replicas.
+
+**Networking Costs**:
+Replication within the same region (different AZs) is free for AWS managed services.
+Cross-region replication incurs network fees.
+
+2. Classic Use Case for Read Replicas:
+Example: If a reporting application is added to a production database, it might slow down performance. Instead, create a Read Replica for the reporting app to read data without affecting the main database.
+
+# RDS Multi AZ 
+
+3. RDS Multi-AZ:
+
+**Purpose**: Primarily for Disaster Recovery.
+
+**How It Works**:
+
+    - Synchronous Replication: Changes made to the master instance are immediately replicated to the standby instance in a different AZ.
+    - Automatic Failover: If the master instance fails, the standby instance is automatically promoted to master with no manual intervention.
+    - The application always uses the same DNS name, so failover is seamless without needing to update the app’s connection settings.
+    - No Scaling: Unlike Read Replicas, Multi-AZ is not used to scale reads; the standby database is inactive and only serves as a backup.
+    - Failover Scenarios:
+    AZ failure, instance failure, or storage failure of the master instance triggers the failover to the standby.
+    
+4. Can Read Replicas be Multi-AZ for Disaster Recovery?
+Yes, Read Replicas can be configured as Multi-AZ for Disaster Recovery.
+This is a common exam topic.
+
+5. Switching from Single-AZ to Multi-AZ:
+- Zero Downtime Operation: You can enable Multi-AZ for a database without stopping it.
+
+**How It Works**:
+
+- Modify the database settings to enable Multi-AZ.
+- Automatic Snapshot of the master database is taken.
+- A standby database is restored and synchronized with the master.
+- No downtime during this process.
