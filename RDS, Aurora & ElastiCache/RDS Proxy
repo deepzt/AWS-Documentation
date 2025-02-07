@@ -1,0 +1,67 @@
+# Amazon RDS Proxy Overview
+
+**What is Amazon RDS Proxy?**
+
+- A fully managed database proxy that helps to efficiently manage database connections between *applications and Amazon RDS* (Relational Database Service). 
+
+- It allows applications to pool and share connections to the database, reducing the number of connections directly to the RDS instance.
+
+# Why Use RDS Proxy?
+
+- Connection Pooling: Instead of each application creating a direct connection to the database, they connect to the RDS Proxy, which then pools and shares these connections. This reduces the strain on the database resources, such as CPU and RAM.
+
+- Improved Efficiency: By minimizing the number of open connections and timeouts to the database, the proxy improves the database's performance.
+
+# Key Features of RDS Proxy
+
+- Serverless and Auto-Scaling:
+
+    - The RDS Proxy is fully serverless, meaning it automatically scales based on demand. No manual capacity management is required.
+
+    - It is highly available across multiple Availability Zones (AZs) to ensure uptime and fault tolerance.
+
+- Failover Handling:
+
+    - If a failover happens in your RDS database (e.g., from primary to standby), the RDS Proxy reduces failover time by up to 66%. This is especially beneficial for applications that require quick recovery during failovers.
+
+- Supported Database Engines:
+
+    - RDS Proxy supports MySQL, PostgreSQL, MariaDB, Microsoft SQL Server, and Aurora (MySQL and PostgreSQL compatible).
+    - The proxy does not require code changes in your application. Instead of connecting directly to the database, you just need to connect to the RDS Proxy.
+
+- IAM Authentication Enforcement:
+
+    - RDS Proxy can enforce IAM authentication for your database, ensuring that only authenticated users can access the database using IAM roles and policies.
+    - Credentials can be securely managed using AWS Secrets Manager to store and rotate the database credentials.
+
+- Security:
+
+    - The RDS Proxy is not publicly accessible. It can only be accessed from within your VPC, which adds an extra layer of security by restricting external access.
+
+- Use Case with Lambda Functions
+
+    - Lambda Functions & RDS Proxy: Lambda functions can scale up quickly and run in large numbers, making them prone to causing connection storms (many connections to the database that can overwhelm it).
+
+# Problem: 
+
+When multiple Lambda functions simultaneously open new connections to the RDS database, it can result in resource exhaustion, timeouts, and instability.
+
+# Solution: 
+
+RDS Proxy helps to pool connections for these Lambda functions, minimizing the load on the RDS database by managing these multiple connections effectively. This allows Lambda functions to interact with the database without overwhelming it.
+
+# Summary of RDS Proxy Benefits:
+
+1. Connection Pooling: Reduces stress on the database by pooling and sharing connections.
+2. Improved Failover Time: Minimizes failover time by up to 66%.
+3. Security: Allows IAM authentication and integrates with Secrets Manager for credential management.
+4. Serverless: Automatically scales without manual intervention and is highly available.
+5. No Code Change Required: You simply change the application’s connection string to the RDS Proxy endpoint, and no other changes are needed.
+6. Enhances Lambda Scalability: Makes Lambda functions more efficient by handling database connections effectively.
+
+# Key Points to Remember for Exams:
+
+RDS Proxy reduces the number of connections to the RDS database, improving performance.
+It can minimize failover times by up to 66%.
+It enforces IAM authentication for added security.
+Lambda functions benefit from RDS Proxy by reducing connection storms and handling scaling efficiently.

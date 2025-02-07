@@ -1,0 +1,55 @@
+# RDS Backup Overview
+
+1. Automated Backups (RDS & Aurora)
+- Frequency: Daily full backup with transaction logs backed up every five minutes.
+- Point-in-Time Recovery: You can restore the database to any point in time within the retention period (earliest is 5 minutes before the current time).
+- Retention: Can be set for 1 to 35 days (cannot disable on Aurora).
+- Purpose: Automates backups to ensure data safety, and allows for point-in-time recovery.
+
+2. Manual DB Snapshots (RDS & Aurora)
+- Trigger: User manually initiates the backup.
+- Retention: Can be kept for as long as desired, unlike automated backups that expire.
+
+- Use Case:
+    - Save costs by creating a snapshot for long-term retention and deleting the original DB instance (especially if the DB is used infrequently).
+    - When the DB is needed again, restore from the snapshot, which costs much less than keeping the database running.
+
+3. Aurora Backup Features
+
+- Automated Backups: Similar to RDS but cannot be disabled.
+- Manual Snapshots: Can be triggered by users and retained for as long as desired.
+- Point-in-Time Recovery: Allows recovery to any point in time within the backup retention period (1-35 days).
+
+4. Restore Options for Backups
+
+- Restore to a New Database (RDS & Aurora):
+- Restores from automated backups or manual snapshots into a new database.
+
+5. Restore from Amazon S3 (RDS MySQL):
+
+- You can restore a MySQL RDS database from a backup file stored in Amazon S3.
+- Useful for restoring a backup from on-premises databases into RDS MySQL.
+
+- Restore to Aurora MySQL (via Percona XtraBackup):
+    - For restoring an external MySQL backup to Aurora MySQL, use Percona XtraBackup to prepare the backup, and then restore it from S3 to Aurora.
+    - Note: Percona XtraBackup is required for Aurora MySQL.
+
+# Aurora Database Cloning
+
+- Purpose: Allows you to create a new Aurora database cluster from an existing one (e.g., from  production to staging environment).
+- Process:
+    - Uses copy-on-write protocol where the clone initially shares the same storage as the source database.
+    - As changes occur to the original or cloned database, new storage is allocated for changes, ensuring efficiency.
+
+- Advantages:
+
+    - Fast: Cloning is quicker than snapshots and restores.
+    - Cost-Effective: It’s cheaper because it doesn't involve duplicating the data initially.
+    - No Impact on the production database while creating a test or staging database.
+
+- Key Takeaways:
+
+    - Automated Backups: Regular, automated backups with transaction logs, and point-in-time recovery.
+    - Manual DB Snapshots: Can be retained for as long as needed and useful for saving costs.
+    - Restore Options: RDS MySQL can restore from S3 directly, while Aurora requires Percona XtraBackup for MySQL restoration.
+    - Aurora Database Cloning: Fast, efficient, and cost-effective cloning of Aurora databases for testing or staging without impacting the production database.
