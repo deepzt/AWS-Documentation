@@ -1,0 +1,53 @@
+# RDS Overview
+
+1. What is AWS RDS?
+
+RDS (Relational Database Service) is a managed service for deploying SQL-based databases in the cloud.
+Supports multiple database engines that use SQL as a query language.
+
+2. Supported Database Engines:
+
+- PostgreSQL
+- MySQL
+- MariaDB
+- Oracle
+- Microsoft SQL Server
+- IBM DB2
+- Amazon Aurora (AWS's proprietary database)
+
+3. Advantages of Using RDS vs. Self-Managed Databases:
+
+- Fully Managed Service by AWS.
+- Automated Provisioning of databases.
+- Automated OS Patching (No need for manual updates).
+- Continuous Backups and ability for Point-in-Time Restore.
+- Performance Monitoring with dashboards.
+- Read Replicas for better read performance.
+- Multi-AZ setup for disaster recovery.
+- Maintenance Windows for upgrades.
+
+4. Scaling Capabilities:
+
+- Vertical Scaling: Increase instance type.
+- Horizontal Scaling: Add read replicas.
+- EBS-backed Storage: Scalable and reliable.
+
+5. Limitations of RDS:
+
+No SSH Access to the underlying EC2 instances (AWS manages the infrastructure).
+
+6. RDS Storage Auto Scaling:
+
+- Automatically scales storage when nearing capacity.
+- Auto Scaling Conditions:
+- Free storage falls below 10% of allocated capacity.
+- Low storage condition persists for 5 minutes.
+- 6 hours must have passed since the last modification.
+- Threshold Setting: Set maximum storage limits to avoid infinite growth.
+- Useful for applications with unpredictable workloads.
+- Supported by all RDS database engines.
+
+7. Key Benefits of RDS Storage Auto Scaling:
+
+- No need for manual storage management.
+- Automatically expands storage when required, preventing service disruptions.
