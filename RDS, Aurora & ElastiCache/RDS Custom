@@ -1,0 +1,40 @@
+# RDS Custom
+
+1. Overview of RDS Custom
+
+- RDS (Relational Database Service) does not allow access to the underlying OS or customization.
+- RDS Custom, however, does allow customization.
+- It supports only two database types:
+    - Oracle
+    - Microsoft SQL Server
+
+2. Features of RDS Custom
+- Provides access to the operating system (OS) and database customization.
+- Maintains benefits of RDS, including automated setup, operations, and scaling in AWS.
+- Unlike standard RDS, RDS Custom allows:
+- Configuration of internal settings
+- Installation of patches
+- Enabling native features
+- SSH/SSM access to the underlying EC2 instance
+
+3. Customization Process
+- To perform customizations:
+- Deactivate automation mode to prevent AWS from interfering during modifications.
+- Take a database snapshot before making changes to avoid irreversible errors.
+
+4. RDS vs. RDS Custom Summary
+________________________________________________________________________________
+|Feature	            |RDS	                    |RDS Custom                 |
+________________________________________________________________________________|
+|OS & DB Management	    |Fully managed by AWS	    |User has full admin access |
+|Customization	        |Not allowed	            |Allowed                    |
+|Database Support	    |Multiple database engines  |Only Oracle & MS SQL Server|
+|Automation	            |Fully automated	        |Can be deactivated|        |
+|Access to EC2 instance	|No	                        |Yes (via SSH/SSM)          |
+|_______________________________________________________________________________|
+
+# Key Takeaways
+
+RDS Custom is ideal for those needing deeper OS & database control.
+Extra caution is needed as misconfigurations can break the database.
+Snapshots should be taken before making changes.
