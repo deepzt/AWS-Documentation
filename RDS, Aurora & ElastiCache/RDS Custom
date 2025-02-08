@@ -25,13 +25,12 @@
 4. RDS vs. RDS Custom Summary
 ________________________________________________________________________________
 |Feature	            |RDS	                    |RDS Custom                 |
-________________________________________________________________________________|
+|_______________________________________________________________________________|
 |OS & DB Management	    |Fully managed by AWS	    |User has full admin access |
 |Customization	        |Not allowed	            |Allowed                    |
 |Database Support	    |Multiple database engines  |Only Oracle & MS SQL Server|
-|Automation	            |Fully automated	        |Can be deactivated|        |
-|Access to EC2 instance	|No	                        |Yes (via SSH/SSM)          |
-|_______________________________________________________________________________|
+|Automation	            |Fully automated	        |Can be deactivated         |
+|Access to EC2 instance	|No	                        |Yes (via SSH/SSM)          |________________________________________________________________________________|
 
 # Key Takeaways
 
