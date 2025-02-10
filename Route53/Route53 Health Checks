@@ -1,0 +1,65 @@
+# Health Checks in Route 53 - Notes
+
+1. Overview of Health Checks in Route 53
+
+- Health checks are used to monitor the health of public and private resources (e.g., load balancers, EC2 instances).
+- Common use case: Multi-region setup for high availability, where health checks help ensure traffic is routed only to healthy regions.
+
+2. Purpose of Health Checks
+
+- Multi-region setup: Example: Two load balancers in different regions (e.g., us-east-1 and eu-west-1) running the same application.
+- Routing Traffic: Route 53 DNS records (latency-based) route users to the closest healthy load balancer.
+- Health checks ensure traffic isn't routed to an unhealthy region (e.g., if one load balancer fails).
+
+3. Types of Health Checks
+
+- Endpoint Health Check: Monitors public endpoints like application servers or AWS resources.
+- Calculated Health Check: Combines the results of multiple child health checks into one parent health check.
+- CloudWatch Alarm Health Check: Monitors a CloudWatch Alarm, useful for private resources.
+
+4. Health Check Process
+
+- AWS health checkers (around 15 globally) perform health checks by sending requests to public endpoints.
+Health Check Criteria:
+- If the health check gets a 200 OK response (or another defined status code), the endpoint is considered healthy.
+- Threshold: A majority (18% or more) of health checkers must agree the endpoint is healthy for it to pass.
+- Supported protocols: HTTP, HTTPS, TCP.
+- Health Check Frequency:
+    - Regular: Every 30 seconds (lower cost).
+    - Fast Health Checks: Every 10 seconds (higher cost).
+- Health checks also allow for text-based responses, where the first 5,120 bytes are checked for specific text.
+
+5. Health Check Locations
+
+- Health checkers come from multiple global locations.
+- You can select specific locations from where to perform the checks.
+
+6. Network Considerations for Health Checks
+
+- Health checkers must be able to access the endpoint.
+- Must allow incoming requests from Route 53 health checkers' IP address range.
+- IP range for health checkers is available from AWS documentation.
+
+7. Calculated Health Checks
+
+- Allows combining the results of multiple health checks into a single "parent" health check.
+- For example, monitoring multiple EC2 instances and combining their health status into one.
+
+- Conditions for combining checks:
+    AND: All child checks must pass for the parent to pass.
+    OR: At least one child check must pass.
+    NOT: A negation condition.
+    Up to 256 child health checks can be combined.
+
+8. Use Cases for Calculated Health Checks
+
+- Useful for situations like performing maintenance on a website without triggering a failure on all checks.
+- Example: If you want to ensure that a service passes only if certain EC2 instances are healthy (combining multiple EC2 health checks).
+
+9. Monitoring Private Resources (e.g., VPC or On-premises)
+
+- Public Route 53 health checkers cannot directly access private resources within a VPC.
+- Solution: Use CloudWatch Metrics to monitor private resources.
+- Assign a CloudWatch Alarm to the metric.
+- When the alarm state is breached (indicating a failure), Route 53 marks the health check as unhealthy.
+- Common Use Case: Monitoring the health of EC2 instances in a private subnet with CloudWatch.
