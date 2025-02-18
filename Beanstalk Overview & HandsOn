@@ -1,0 +1,136 @@
+# Notes on Elastic Beanstalk:
+
+1. Common Web Application Architecture:
+
+- Typical architecture: Load balancer -> Auto Scaling Group (ASG) -> EC2 instances.
+- Backend: RDS (Relational Database Service), caching with ElastiCache.
+- Recreating this infrastructure for each deployment can be tedious.
+
+2. Challenges for Developers:
+
+- Managing infrastructure like load balancers, databases, and scaling is complex.
+- Developers primarily want to focus on writing code without worrying about infrastructure.
+
+3. Elastic Beanstalk Overview:
+
+- Beanstalk simplifies deployment by providing a developer-centric view.
+- It automates infrastructure management (e.g., EC2, ASG, ELB, RDS, etc.).
+- Developers focus on application code; Beanstalk handles provisioning, scaling, and monitoring.
+
+4. How Elastic Beanstalk Works:
+
+- Managed Service: Deploys the infrastructure required to run your app.
+- Handles capacity provisioning, scaling, load balancer configuration, and application health monitoring.
+- You can still modify configuration if needed, but Beanstalk streamlines the process.
+
+5. Cost of Beanstalk:
+
+- Beanstalk itself is free, but you pay for the underlying AWS resources (EC2, ASG, ELB, RDS, etc.) used by your application.
+
+6. Elastic Beanstalk Components:
+
+- Application: Collection of Beanstalk components (environments, versions, configurations).
+- Version: Iteration of your application code (e.g., version 1, version 2, etc.).
+- Environment: A collection of resources running a specific application version.
+    * Only one version can run in an environment at a time.
+
+- Tiers:
+    * Web Server Tier: Handles web traffic (load balancer, EC2, auto scaling).
+    * Worker Tier: Processes tasks from an SQS queue (used for background processing).
+
+- Multiple Environments: Dev, Test, Prod, etc., can be created for different stages.
+
+7. Deployment Process:
+
+- Create Application → Upload Version → Launch Environment → Manage Environment Lifecycle.
+- You can update the application version by uploading a new version and redeploying.
+
+8. Supported Programming Languages:
+
+- Go, Java SE, Java with Tomcat, .NET Core (Linux), .NET (Windows), Node.js, PHP, Python, Ruby, Docker (Single and Multi-container), Pre-configured Docker.
+
+9. Server Tier vs. Worker Tier:
+
+- Web Server Environment:
+    * Typical architecture: Load balancer -> EC2 instances in an Auto Scaling group.
+
+- Worker Environment:
+    * EC2 instances pull tasks from an SQS queue to process background jobs.
+
+- Scales based on the number of SQS messages (more messages = more EC2 instances).
+- Web and worker environments can work together (web environment pushes messages to the worker SQS queue).
+
+10. Elastic Beanstalk Deployment Modes:
+
+- Single Instance (Development Mode):
+    * One EC2 instance with an Elastic IP.
+    * Suitable for testing and development, but not scalable for production.
+
+- High Availability (Production Mode):
+    * Load balancer distributes traffic across multiple EC2 instances.
+    * Managed by an Auto Scaling Group across multiple availability zones (AZs).
+    * Can include RDS Multi-AZ for database high availability.
+
+
+# Notes on Using AWS Elastic Beanstalk:
+1. Starting Elastic Beanstalk:
+
+    - Go to the Elastic Beanstalk console to create an application.
+    - Two environment options:
+        * Web Server Environment for websites.
+        * Worker Environment for processing tasks from a queue.
+        
+2. Create an Application:
+
+- Choose Web Server Environment for a website.
+- Name the application, e.g., MyApplication.
+- Set the environment name (e.g., MyApplication-dev for a development environment).
+- A domain name is auto-generated for access to the web server.
+
+3. Platform & Code:
+
+- Choose a managed platform, e.g., Node.js.
+- For code, use the Sample application to match the environment.
+
+4. Presets and Configuration:
+
+- Choose Single Instance for simplicity (free-tier eligible).
+- IAM Roles needed for service access: Create a new Service Role for Beanstalk.
+- Create EC2 Instance Profile in IAM for EC2-related permissions:
+    * Add permissions like WebTier, WorkerTier, and MulticontainerDocker.
+    * Name the role aws-elasticbeanstalk-ec2-role.
+
+5. Service Access and Network Setup:
+
+- After creating the EC2 role, refresh and assign it to the Beanstalk setup.
+- Skip database, networking, and scaling settings for simplicity.
+
+6. Deployment Process:
+
+- Click Submit to start creating the environment.
+- CloudFormation handles the creation of resources like EC2 instances, Auto Scaling groups, and Elastic IP.
+- View the Events to monitor the progress of resources being created (e.g., EC2 instance, Elastic IP).
+
+7. Access the Application:
+
+- Once setup is complete, access the application via the generated domain name.
+- A basic web page will confirm that the Beanstalk environment is running.
+
+8. Managing the Application:
+
+- Upload new versions to deploy updates to the EC2 instance.
+- Use Health tab for instance health checks, Logs for application logs, and Monitoring for metrics.
+- Configuration allows modifications to Beanstalk settings.
+
+9. Multiple Environments:
+
+- Create additional environments (e.g., MyApplication-prod) to manage different stages of development (e.g., production).
+
+10. Key Differences Between Beanstalk and CloudFormation:
+
+- Beanstalk manages code deployments and environments.
+- CloudFormation is used for more customizable stack deployments (e.g., infrastructure).
+
+11. Cleanup:
+
+- If you are done with the Beanstalk lectures, delete the application to clean up resources.
