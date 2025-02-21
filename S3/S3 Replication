@@ -1,0 +1,13 @@
+# S3 Replication
+
+Replication is a key feature for disaster recovery, data residency, or geographic redundancy. AWS will expect you to know the types of replication, how to configure them, and their best-use cases.
+
+# Types of Replication:
+
+1. Cross-Region Replication (CRR): Automatically replicates objects between buckets in different AWS regions. This is useful for disaster recovery and meeting compliance/regulatory requirements.
+
+2. Same-Region Replication (SRR): Replicates objects within the same region. Primarily used for backup and data redundancy within one region.
+
+
+- Replication is asynchronous. This means there may be a slight delay before the replicated object appears in the destination bucket.
+- Replication Configurations can include filters (prefix, tags) to replicate only certain objects, and you can also replicate metadata and ACLs.

@@ -1,0 +1,26 @@
+# Overview of Amazon S3:
+
+Amazon S3 is an object storage service provided by Amazon Web Services (AWS) that offers scalable, durable, and low-latency storage. It allows you to store and retrieve any amount of data from anywhere on the web. S3 is primarily used for storing files, backups, and data that need to be accessed quickly.
+
+# Key Features:
+
+1. Scalability: Automatically scales as your data grows.
+2. Durability: 99.999999999% durability (11 9s), meaning data is highly resilient.
+3. Availability: 99.99% availability for S3 Standard storage.
+4. Security: Supports encryption, both at rest and in transit, as well as fine-grained access control with IAM, ACLs, and bucket policies.
+Pay-as-you-go pricing model: You only pay for the storage you use and the requests you make.
+
+# S3 Buckets:
+
+A bucket is a container for storing objects (files) in Amazon S3. Each object consists of data, metadata, and a unique identifier (key).
+
+Naming conventions: Bucket names must be globally unique across AWS. They can contain lowercase letters, numbers, hyphens, and periods.
+
+# S3 Objects:
+
+An object in S3 is the fundamental entity stored. Each object consists of:
+
+Data (the actual content of the object)
+Metadata (key-value pairs that describe the object, such as content-type)
+Key (a unique identifier within a bucket, similar to a file name)
+Version ID (optional, depending on whether versioning is enabled)

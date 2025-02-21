@@ -1,0 +1,19 @@
+# S3 Versioning
+
+Versioning in Amazon S3 allows you to keep multiple versions of an object in a bucket.
+
+# How it works: 
+
+- When you upload a new version of an object, S3 doesn’t overwrite the previous version but stores both versions. This allows you to recover earlier versions if needed.
+
+# Benefits:
+
+- Protects against accidental deletions or overwrites.
+- Allows for easy recovery of previous object versions.
+# Enabling Versioning: 
+
+- To enable versioning, it must be activated on the bucket. Once enabled, all objects uploaded to that bucket will have versions.
+
+# Example of Versioning:
+
+If you upload an object file.txt, it has a version ID v1. If you upload a new version, it gets a new version ID v2, while v1 still exists.

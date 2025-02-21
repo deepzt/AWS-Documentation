@@ -1,0 +1,24 @@
+# S3 Storage Classes
+
+1. S3 Standard is for frequently accessed data with low-latency needs.
+
+    - High durability (99.999999999%)
+    - Low latency and high throughput
+    - Used for websites, big data analytics, and mobile applications
+
+2. S3 Intelligent-Tiering is for data that has unknown or changing access patterns (e.g., unpredictable usage).
+
+    - Optimizes costs by automatically moving data between two access tiers (frequent and infrequent access).
+    - Best for data with unknown or changing access patterns.
+
+3. S3 Standard-IA (Infrequent Access) is cheaper than Standard but incurs retrieval costs. Best for data you access infrequently but need immediate availability.
+
+    - Lower cost than S3 Standard
+    - Retrieval charges apply.
+    - S3 One Zone-IA: Lower-cost option for infrequently accessed data that doesn’t need high availability across multiple zones.
+
+
+4. S3 Glacier and S3 Glacier Deep Archive are for archival storage with retrieval times ranging from minutes to hours, at a lower cost.
+
+    - Used for compliance and regulatory archiving.
+    - S3 Outposts: S3 storage on-premises for hybrid cloud applications using AWS Outposts.

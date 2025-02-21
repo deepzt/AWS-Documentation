@@ -1,0 +1,49 @@
+# S3 Access Control:
+
+1. S3 provides multiple ways to control access to your objects:
+
+- Bucket Policies: JSON-based policies that define permissions for all objects within the bucket. These policies can specify who can access the bucket, what actions are allowed, and under what conditions.
+
+- IAM Policies: AWS Identity and Access Management (IAM) policies attached to users or roles, granting permissions to interact with S3.
+
+- Access Control Lists (ACLs): ACLs are used to specify object-level permissions, such as who can read or write specific objects.
+
+- Pre-Signed URLs: Provide temporary access to private objects for users who don't have IAM credentials.
+
+2. S3 Event Notifications:
+
+    - S3 allows you to trigger notifications based on certain events, such as object uploads, deletions, or updates. These events can trigger services like Lambda, SNS, or SQS to perform actions based on the event.
+
+    - Use Cases:
+    Trigger Lambda functions when a new object is uploaded.
+    Send messages to an SQS queue for processing.
+
+3. S3 Data Lifecycle Management:
+
+- Lifecycle policies allow you to automate the movement of data between storage classes or delete objects after a specified period.
+
+Example Use Cases:
+Move objects to Glacier after 30 days.
+Delete objects older than a year.
+Transition objects to IA (Infrequent Access) after a month of being uploaded.
+
+4. S3 Encryption:
+S3 supports encryption for both data at rest and data in transit to ensure the confidentiality of your data.
+
+Encryption at Rest:
+- SSE-S3: S3-managed keys for encryption.
+- SSE-KMS: AWS Key Management Service (KMS) keys for more control over encryption keys.
+- SSE-C: Customer-provided encryption keys.
+Encryption in Transit: Ensures that data is encrypted while moving between your client and S3 using SSL/TLS.
+
+5. S3 Eventual Consistency and Strong Consistency:
+Eventual Consistency: S3 traditionally used eventual consistency for overwrite PUTS and DELETES, meaning that updates might not be immediately visible.
+Strong Consistency: In 2020, AWS introduced strong consistency for all read and write operations on S3. This means that once an object is written or deleted, all subsequent reads will immediately reflect the latest state.
+
+6. S3 Object Locking:
+S3 Object Locking helps prevent objects from being deleted or overwritten for a specified retention period. This is particularly useful for regulatory compliance purposes, such as with financial or healthcare data.
+
+Types of Object Locking:
+
+- Governance Mode: Allows users with specific permissions to overwrite or delete objects.
+- Compliance Mode: Prevents any user from deleting or modifying objects, even if they have full permissions.
