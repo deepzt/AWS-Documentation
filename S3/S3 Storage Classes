@@ -1,13 +1,13 @@
 # Overview of Storage Classes:
 
-* Amazon S3 Standard (General Purpose)
-* Amazon S3 Infrequent Access (IA)
-* Amazon S3 One Zone-Infrequent Access (One Zone-IA)
-* Amazon S3 Glacier
-* Glacier Instant Retrieval
-* Glacier Flexible Retrieval
-* Glacier Deep Archive
-* Amazon S3 Intelligent Tiering
+- Amazon S3 Standard (General Purpose)
+- Amazon S3 Infrequent Access (IA)
+- Amazon S3 One Zone-Infrequent Access (One Zone-IA)
+- Amazon S3 Glacier
+    * Glacier Instant Retrieval
+    * Glacier Flexible Retrieval
+    * Glacier Deep Archive
+- Amazon S3 Intelligent Tiering
 
 # Durability & Availability:
 
