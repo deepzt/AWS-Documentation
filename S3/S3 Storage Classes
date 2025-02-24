@@ -1,24 +1,70 @@
-# S3 Storage Classes
+# Overview of Storage Classes:
 
-1. S3 Standard is for frequently accessed data with low-latency needs.
+* Amazon S3 Standard (General Purpose)
+* Amazon S3 Infrequent Access (IA)
+* Amazon S3 One Zone-Infrequent Access (One Zone-IA)
+* Amazon S3 Glacier
+* Glacier Instant Retrieval
+* Glacier Flexible Retrieval
+* Glacier Deep Archive
+* Amazon S3 Intelligent Tiering
 
-    - High durability (99.999999999%)
-    - Low latency and high throughput
-    - Used for websites, big data analytics, and mobile applications
+# Durability & Availability:
 
-2. S3 Intelligent-Tiering is for data that has unknown or changing access patterns (e.g., unpredictable usage).
+- Durability:
+    All storage classes have 11 nines durability (99.999999999%).
+    High durability: For example, with 10 million objects, you may lose one every 10,000 years.
 
-    - Optimizes costs by automatically moving data between two access tiers (frequent and infrequent access).
-    - Best for data with unknown or changing access patterns.
+- Availability:
+    Represents how accessible a service is, and depends on the storage class.
+    Example:
+    S3 Standard: 99.99% availability, about 53 minutes of downtime per year.
+    S3 Standard-IA: 99.9% availability.
+    One Zone-IA: 99.5% availability.
 
-3. S3 Standard-IA (Infrequent Access) is cheaper than Standard but incurs retrieval costs. Best for data you access infrequently but need immediate availability.
+# Storage Classes in Detail:
 
-    - Lower cost than S3 Standard
-    - Retrieval charges apply.
-    - S3 One Zone-IA: Lower-cost option for infrequently accessed data that doesn’t need high availability across multiple zones.
+- Amazon S3 Standard:
+    For frequently accessed data.
+    Low latency, high throughput.
+    Use cases: Big data analytics, mobile apps, gaming, content distribution.
+    Availability: 99.99% (2 concurrent AWS facility failures possible).
 
+- Amazon S3 Infrequent Access (IA):
+    For less frequently accessed data but needs rapid retrieval when accessed.
+    Availability: 99.9%.
+    Use case: Disaster recovery and backups.
+    Lower cost than S3 Standard but incurs retrieval cost.
 
-4. S3 Glacier and S3 Glacier Deep Archive are for archival storage with retrieval times ranging from minutes to hours, at a lower cost.
+- Amazon S3 One Zone-Infrequent Access (One Zone-IA):
+    Stored in a single availability zone (AZ).
+    Availability: 99.5%.
+    Durability within a single AZ.
+    Use case: Secondary backups of on-premises data or recreatable data.
 
-    - Used for compliance and regulatory archiving.
-    - S3 Outposts: S3 storage on-premises for hybrid cloud applications using AWS Outposts.
+- Amazon S3 Glacier (Cold Storage):
+    Low-cost, archival storage.
+    Retrieval costs and storage costs.
+
+- Classes within Glacier:
+    * Glacier Instant Retrieval: For data accessed once a quarter with milliseconds retrieval.
+    * Glacier Flexible Retrieval: Expedited (1-5 min), Standard (3-5 hours), Bulk (5-12 hours).
+    * Glacier Deep Archive: Cheapest for long-term storage with 12-48 hours retrieval.
+
+- Amazon S3 Intelligent Tiering:
+    Automatically moves objects between different access tiers based on usage patterns.
+    No retrieval charges.
+
+- Tiers:
+    Frequent Access (default).
+    Infrequent Access (not accessed for 30 days).
+    Archive Instant Access (not accessed for 90+ days).
+    Archive Access (not accessed for 90-700+ days).
+    Deep Archive Access (not accessed for 180-700+ days).
+
+- Cost Considerations:
+    Each class has varying pricing, mainly based on:
+    Storage cost.
+    Retrieval cost (for Glacier and IA).
+    The Intelligent Tiering class adds a small monthly monitoring fee and auto-tiering fee.
+
