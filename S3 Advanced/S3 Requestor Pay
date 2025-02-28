@@ -1,0 +1,24 @@
+# Notes on S3 Requester Pays
+
+1. Overview of S3 Requester Pays:
+
+- Requester Pays is a feature where the requester (the user downloading the file) pays for the networking costs instead of the bucket owner.
+
+2. Bucket Owner's Responsibility:
+
+- The bucket owner pays for the storage costs of objects in the bucket.
+- The networking costs for data transfer are typically borne by the bucket owner, but with Requester Pays, the requester covers the download costs.
+
+3. When to Use Requester Pays:
+
+- Useful when sharing large datasets with other users or accounts.
+- Instead of the owner incurring high data transfer costs for large files, the requester is billed for the download.
+
+4. Requester Conditions:
+
+- The requester must be authenticated in AWS (i.e., not anonymous) to ensure proper billing.
+- AWS tracks the authenticated requester's actions and bills them accordingly.
+
+5. Exam Relevance:
+
+S3 Requester Pays may be tested in scenarios, so it's important to understand when and how it’s used.

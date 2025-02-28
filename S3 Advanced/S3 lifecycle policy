@@ -1,0 +1,30 @@
+# Notes on Moving Objects Between Storage Classes
+
+1. Transitioning Between Storage Classes:
+
+- Objects can move between different storage classes, as shown in the diagram:
+  - Standard → Standard IA → Intelligent Tiering → One-Zone IA.
+  - One-Zone IA → Flexible Retrieval → Deep Archive.
+- This allows optimization based on access frequency and archival needs.
+
+2. Storage Class Strategy:
+
+Standard IA: For objects that are infrequently accessed.
+Glacier/Deep Archive: For archived objects.
+
+3. Automating Transitions with Lifecycle Rules:
+
+Transition Action: Automatically move objects between classes after a specified time.
+  Example: Move to Standard IA after 60 days, or Glacier after six months.
+
+Expiration Action: Automatically delete objects after a specified time.
+  Example: Delete access logs after 365 days or delete old versions if versioning is enabled.
+
+Multi-part Upload Expiry: Delete incomplete uploads older than 2 weeks.
+
+4. Lifecycle Rules Configuration:
+
+Rules can be set based on:
+- Prefix (e.g., apply to specific paths in a bucket).
+- Object tags (e.g., apply only to "finance" tagged objects).
+- Entire bucket or specific objects.
