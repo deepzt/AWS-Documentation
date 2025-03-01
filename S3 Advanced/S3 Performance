@@ -1,0 +1,56 @@
+# S3 Baseline Performance - Key Notes
+
+1. Default S3 Performance Characteristics
+
+- Automatic Scaling:
+    - S3 scales to handle very high numbers of requests automatically.
+- Latency:
+    - Low latency with 100–200 milliseconds to get the first byte out of S3.
+
+2. Request Limits Per Prefix
+
+- PUT/COPY/POST/DELETE Requests:
+    - Up to 3,500 requests per second per prefix.
+- GET/HEAD Requests:
+    - Up to 5,500 requests per second per prefix.
+- Definition of a Prefix:
+    - The portion of the key name between the bucket name and the file name.
+- Example: For an object located at base/folder1/sub1/file, the prefix is /folder1/sub1.
+- Scaling Performance:
+    - Multiple prefixes can be used to scale the overall throughput.
+- Even distribution across prefixes can achieve higher combined request rates (e.g., 22,000 GET/HEAD requests per second across four prefixes).
+
+3. Performance Optimization Strategies
+
+- Multi-Part Upload:
+
+    - Usage: Recommended for files over 100 MB; mandatory for files over 5 GB.
+    - Benefit: Uploads are divided into smaller chunks which are uploaded in parallel, maximizing bandwidth and speeding up transfers.
+    - Mechanism: S3 reassembles the parts into a complete file after all parts are uploaded.
+
+- S3 Transfer Acceleration:
+
+    - Purpose: Increases transfer speeds for uploads and downloads.
+    - Mechanism:
+    - Files are transferred to an AWS edge location, which then uses the fast, private AWS network to forward the data to the target S3 bucket in another region.
+    - Reduces reliance on the slower public internet.
+    - Compatibility: Works together with multi-part uploads.
+
+- S3 Byte Range Fetches:
+
+    - Purpose: Optimizes file downloads by parallelizing GET requests for specific byte ranges of a file.
+    - Benefits:
+        - Speeds up large file downloads by requesting parts concurrently.
+        - Provides resilience, allowing retries on smaller byte ranges in case of failure.
+        - Useful for fetching specific parts of a file (e.g., file header).
+
+4. Summary
+
+- Baseline Performance:
+    - S3 offers excellent baseline performance with low latency and high request handling per prefix.
+- Optimizations:
+    - Multi-part upload and transfer acceleration enhance upload speeds.
+    - Byte range fetches optimize download performance and allow for partial retrieval of files.
+- Scalability:
+    - Using multiple prefixes allows further scaling to accommodate high throughput.
+    - These notes capture the key points on how Amazon S3 handles performance, the inherent request limits per prefix, and the strategies available to optimize upload and download speeds.

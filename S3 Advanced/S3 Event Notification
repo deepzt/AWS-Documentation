@@ -1,0 +1,47 @@
+# S3 Event Notifications - Key Notes
+
+1. Introduction to S3 Event Notifications
+
+- Events occur in Amazon S3.
+- Examples of events:
+    - Object creation
+    - Object deletion
+    - Object restoration
+    - Replication events
+    - Events can be filtered (e.g., only for .jpeg files).
+
+2. Use Cases
+
+- Automate reactions to events in S3.
+- Example: Generate thumbnails when images are uploaded.
+
+3. Event Notification Destinations
+
+- Events can be sent to:
+    - SNS (Simple Notification Service)
+    - SQS (Simple Queue Service)
+    - Lambda function
+    - Amazon EventBridge (enhanced filtering & multiple destinations)
+
+4. IAM Permissions for S3 Event Notifications
+
+- SNS: Requires an SNS resource access policy.
+- SQS: Requires an SQS resource access policy.
+- Lambda: Requires a Lambda resource policy.
+
+Note: IAM roles are not used for S3 event notifications. Instead, resource access policies are applied to SNS, SQS, or Lambda.
+
+5. EventBridge Integration
+
+- All S3 events are sent to Amazon EventBridge by default.
+- EventBridge allows:
+- Advanced filtering (metadata, object size, name, etc.).
+- Routing to 18+ AWS services (e.g., Step Functions, Kinesis, Firehose).
+- Features like event archiving, replay, and reliable delivery.
+
+6. Key Takeaways
+
+- S3 Event Notifications enable automatic responses to changes in S3 buckets.
+- Primary destinations: SNS, SQS, Lambda, and EventBridge.
+- EventBridge offers advanced routing and filtering options.
+- Resource access policies are required for SNS, SQS, and Lambda integration.
