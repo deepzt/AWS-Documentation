@@ -1,0 +1,24 @@
+# S3 Object Encryption
+
+- We can encrypt objects in S3 using 4 methods
+    - Server Side Encryption (SSE)
+        - SSE with Amazon managed S3 keys (default)
+            * Encryption using keys which are handled and managed by AWS
+            * Object is encrypted server side with AES-256
+            * Must set header "x-amz-server-side-encryption":"AES256"
+
+        - SSE with KMS key stored in AWS KMS (SSE-KMS)
+            * Encryption using keys which are handled and managed by KMS (Key Management Service)
+            * KMS advantage: user control and audit key usage using Cloudtrail
+            * Must set header: "x-amz-server-side-encryption":"aws:kms"
+
+        - SSE with Customer provided Keys (SSE-C)
+            * Uses Customer managed key
+            * AWS do not store or encrypt the key
+            * HTTPS is must
+    
+    - Client Side Encryption
+        * Encrypt before sending data
+        * Decrypt before retrieving data
+        * Customer fully manages the key and encryption cycle.
+         
